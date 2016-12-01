@@ -39,21 +39,5 @@ public class MainActivity extends FragmentActivity
     }
 
     public void onArticleSelected(int position) {
-        ArticleFragment articleFrag = (ArticleFragment)
-                getSupportFragmentManager().findFragmentById(R.id.article_fragment);
-
-        if (articleFrag != null) {
-            articleFrag.updateArticleView(position);
-
-        } else {
-            ArticleFragment newFragment = new ArticleFragment();
-            Bundle args = new Bundle();
-            args.putInt(ArticleFragment.ARG_POSITION, position);
-            newFragment.setArguments(args);
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        }
     }
 }
